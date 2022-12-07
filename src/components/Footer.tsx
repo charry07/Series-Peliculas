@@ -5,7 +5,7 @@ import { MDBBtn, MDBContainer, MDBFooter } from 'mdb-react-ui-kit';
 
 export const Footer = () => {
   return (
-    <MDBFooter className='text-center text-white' style={{ backgroundColor: '#1976d2', position: 'relative', bottom: 0 , width:'100%' }}>
+    <MDBFooter className='text-center text-white' style={{ backgroundColor: '#1976d2', position: 'relative', bottom: 0 , width:'100%'  }}>
       <MDBContainer className='pt-4'>
         <section className='mb-4'>
           <MDBBtn rippleColor='dark' color='white' size='lg' className='text-dark m-1' href='https://www.linkedin.com/in/charry07/' role='button'>

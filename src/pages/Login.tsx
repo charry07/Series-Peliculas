@@ -1,7 +1,7 @@
 import { AccountCircle } from '@mui/icons-material';
-import { Button, Card, FormControl, Input, InputAdornment, InputLabel, TextField } from '@mui/material';
+import { Box, Button, Card, FormControl, Input, InputAdornment, InputLabel, TextField } from '@mui/material';
 import { Form, Formik } from 'formik';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 
@@ -9,9 +9,13 @@ export const Login = () => {
   const userProvider = useContext(UserContext);
   const navigate = useNavigate();
   let User = localStorage.getItem('User');
-  User && navigate('/');
+
+  useEffect(() => {
+    User && navigate('/');
+  }, []);
+  
   return (
-    <>
+    <Box sx={{ mb: 40 }}>
       <Formik
         validateOnChange={false}
         initialValues={{
@@ -68,6 +72,6 @@ export const Login = () => {
           </Form>
         )}
       </Formik>
-    </>
+    </Box>
   );
 };

@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SearchBar } from './SearchBar';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const AppBarMenu = ({ inputSearch }: any) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -28,7 +29,7 @@ export const AppBarMenu = ({ inputSearch }: any) => {
   };
   const handleLogout = () => {
     setAnchorEl(null);
-    localStorage.clear()
+    localStorage.clear();
     navigate('/Login');
   };
 
@@ -53,13 +54,15 @@ export const AppBarMenu = ({ inputSearch }: any) => {
     </Menu>
   );
 
-  return (
-    <Box sx={{ flexGrow: 1, bgColor: 'red', display: `${location.pathname === '/Login' && 'none'}` }}>
+  return location.pathname !== '/Login' ? (
+    <Box sx={{ flexGrow: 1, bgColor: 'red' }}>
       <AppBar position='static'>
         <Toolbar>
-          <IconButton size='large' edge='start' color='inherit' aria-label='open drawer' sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
+          {location.pathname === '/AboutMe' ? (
+            <IconButton size='large' edge='start' color='inherit' aria-label='open drawer' onClick={() => navigate('/')} sx={{ mr: 2 }}>
+              <ArrowBackIcon />
+            </IconButton>
+          ) : null}
 
           <Typography variant='h6' noWrap sx={{ display: { xs: 'none', sm: 'flex' }, width: 200, mr: 5 }}>
             ACharryN
@@ -77,5 +80,5 @@ export const AppBarMenu = ({ inputSearch }: any) => {
       </AppBar>
       {renderMenu}
     </Box>
-  );
+  ) : null;
 };
