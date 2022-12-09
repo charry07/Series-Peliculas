@@ -19,6 +19,7 @@ function App() {
         <AppBarMenu inputSearch={(e: string) => setInputSearch(e)}/>
         <Routes>
           <Route path='/' element={<ContentSite inputSearch={inputSearch} />} />
+          <Route path='/Series-Peliculas' element={<ContentSite inputSearch={inputSearch} />} />
           <Route path='/Login' element={<Login />} />
           <Route path='/AboutMe' element={<AboutMe />} />
           <Route path='/Page404' element={<Page404 />} />
